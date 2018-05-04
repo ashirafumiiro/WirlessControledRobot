@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="ArduinoWiring.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" KeyDown="Page_KeyDown" KeyUp="Page_KeyUp">
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock Text="iLabs@Mak Robot Control" Name="TitleText" RelativePanel.AlignTopWithPanel="True" Style="{ThemeResource TitleTextBlockStyle}" Margin="20,10"/>
+        <Image Name="IlabsLogo" Source="Assets/ilabs.jpg" RelativePanel.Below="TitleText" 
+               RelativePanel.AlignRightWithPanel="True"
+               Height="100"/>
+        <ToggleButton Name="ForwardButton" Content="Move" RelativePanel.AlignTopWith="NavGrid"
+                Click="ForwardButton_Click" Checked="ForwardButton_Checked" Unchecked="ForwardButton_Unchecked" Margin="0,-0.2,0,0" VerticalAlignment="Bottom" />
+        <Slider Name="SpeedMeter" Minimum="0" Maximum="255" 
+                RelativePanel.Above="NavGrid"
+                RelativePanel.AlignHorizontalCenterWith="NavGrid"
+                Width="255" ValueChanged="SpeedMeter_ValueChanged"
+              
+                />
+        <Grid RelativePanel.AlignVerticalCenterWithPanel="True" Name="NavGrid"
+              RelativePanel.AlignHorizontalCenterWithPanel="True"
+              Margin="20,20,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ToggleButton Content="Forward" Name="FrontButton" Grid.Column="1" Checked="FrontButton_Checked" Unchecked="FrontButton_Unchecked" />
+            <Button Content="Left" Name="LeftButton" Grid.Row="1" Click="LeftButton_Click" />
+            <Button Content="Right" Name="RightButton" Grid.Row="1" Grid.Column="2" Click="RightButton_Click"/>
+            <ToggleButton Content="Backward" Name="ReverseButton" Grid.Row="2" Grid.Column="1" Checked="ReverseButton_Checked" Unchecked="ReverseButton_Unchecked" />
+        </Grid>
+        
+
+        <!--Footer starts here-->
+        <Border RelativePanel.AlignBottomWithPanel="True" Background="Azure" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+            <RelativePanel>
+                <ListBox x:Name="ConnectionList" RelativePanel.AlignLeftWithPanel="True" HorizontalAlignment="Left" Height="46"  VerticalAlignment="Top" Width="156"/>
+                <Button x:Name="ConnectButton" Click="ConnectButton_Click" Content="Connect" HorizontalAlignment="Left"  VerticalAlignment="Top" RelativePanel.RightOf="ConnectionList" Margin="10,0,0,0" />
+                <TextBlock x:Name="DebugInfo" HorizontalAlignment="Left" RelativePanel.AlignRightWithPanel="True"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="23" Width="317" FontSize="20"/>
+            </RelativePanel>
+        </Border>
+    </RelativePanel>
+</Page>
