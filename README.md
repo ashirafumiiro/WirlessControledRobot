@@ -4,4 +4,6 @@ This robot was written about by the new vision at the link http://bit.ly/2oCxsPw
 The hardware consists of the HC-06 module which was used for communication between the arduino and the Computer running the application
 The schematic of the hardware without including the servo motor is shown below in proteus
 ![alt text](https://github.com/ashirafumiiro/WirlessControledRobot/blob/master/images/circuit.PNG)
+##### Photo of the robot. courtesy of new vision
+![alt text](https://github.com/ashirafumiiro/WirlessControledRobot/blob/master/images/robot.jpg)
 
